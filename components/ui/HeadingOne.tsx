@@ -1,11 +1,17 @@
 type Props = {
   title: string;
+  className?: string;
 };
 
-export const H1: React.FC<Props> = ({ title }) => {
+export const H1: React.FC<Props> = ({ title, className }) => {
   return (
-    <h1 className="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl">
+    <p
+      className={
+        "scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl" +
+        className
+      }
+    >
       {title}
-    </h1>
+    </p>
   );
 };

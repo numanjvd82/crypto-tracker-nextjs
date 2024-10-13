@@ -1,5 +1,5 @@
 type Props = {
-  title: string;
+  title: string | number;
 };
 
 export const SmallText: React.FC<Props> = ({ title }) => {

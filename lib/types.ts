@@ -1,4 +1,4 @@
-export type CryptoData = {
+export type CoinDetails = {
   id: number;
   name: string;
   symbol: string;
