@@ -100,7 +100,9 @@ export default async function Cards() {
       </div>
 
       {/* Chart */}
-      <PriceChart />
+      <Card>
+        <PriceChart />
+      </Card>
     </>
   );
 }
