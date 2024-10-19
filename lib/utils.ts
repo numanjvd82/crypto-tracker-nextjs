@@ -5,18 +5,11 @@ export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
 
-export const months = [
-  "January",
-  "February",
-  "March",
-  "April",
-  "May",
-  "June",
-
-  "July",
-  "August",
-  "September",
-  "October",
-  "November",
-  "December",
-];
+export const enum e {
+  oneDay = 1,
+  week = 7,
+  oneMonth = 30,
+  threeMonth = 90,
+  sixMonth = 180,
+  yearly = 365,
+}
