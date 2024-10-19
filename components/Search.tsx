@@ -82,7 +82,7 @@ export default function Search() {
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>
         <Button size="icon" variant="outline">
-          <SearchIcon className="h-4 w-4" />
+          <SearchIcon className="h-4 w-4 dark:text-white" />
         </Button>
       </DialogTrigger>
       <DialogContent
@@ -97,7 +97,9 @@ export default function Search() {
             placeholder="Type...."
           />
         </DialogHeader>
-        <div>{CoinsList()}</div>
+        <div>
+          <CoinsList />
+        </div>
       </DialogContent>
     </Dialog>
   );
