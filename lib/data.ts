@@ -1,16 +1,5 @@
 import { axiosInstanceCoinGecko } from "./axios";
-import { CoinDetails, CoinList } from "./types";
-
-export const fetchAllCoinsId = async () => {
-  try {
-    const res = await axiosInstanceCoinGecko.get("/coins/list");
-    return res.data as CoinList[];
-  } catch (err: unknown) {
-    if (err instanceof Error) {
-      console.log(err);
-    }
-  }
-};
+import { CoinDetails } from "./types";
 
 export const fetchCoinDataById = async (id: string) => {
   if (!id) return;

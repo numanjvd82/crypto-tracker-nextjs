@@ -1,6 +1,7 @@
 export type CoinDetails = {
   id: number;
   name: string;
+  symbol: string;
   market_data: {
     current_price: {
       usd: number;

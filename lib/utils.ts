@@ -13,3 +13,12 @@ export const enum e {
   sixMonth = 180,
   yearly = 365,
 }
+
+export function toFixedNumber(
+  num: number,
+  digits: number,
+  base: number | null = null
+) {
+  const pow = Math.pow(base ?? 10, digits);
+  return Math.round(num * pow) / pow;
+}

@@ -3,6 +3,7 @@ export const revalidate = 60;
 import { axiosInstanceCoinGecko } from "@/lib/axios";
 import { CoinDetails } from "@/lib/types";
 import Link from "next/link";
+import Converter from "./Converter";
 import { PlusMinusIndicator } from "./PlusMinusIndicator";
 import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
 import { H1 } from "./ui/HeadingOne";
@@ -16,7 +17,7 @@ type Props = {
 export default async function InfoCards({ id }: Props) {
   if (!id) return;
   const res = await axiosInstanceCoinGecko.get(`/coins/${id}`);
-  const { name, genesis_date, market_cap_rank, market_data, links } =
+  const { name, symbol, genesis_date, market_cap_rank, market_data, links } =
     (await res.data) as CoinDetails;
   const priceChange = market_data.price_change_percentage_24h ?? 0;
   const isPositive = priceChange > 0;
@@ -25,7 +26,7 @@ export default async function InfoCards({ id }: Props) {
       <Card className="mt-2">
         <CardHeader className="flex-row justify-between items-center">
           <CardTitle>
-            <H1 className="text-4xl" title={name || ""} />
+            <H1 className="text-4xl" title={name} />
           </CardTitle>
           <div className="flex justify-center">
             <H1
@@ -102,6 +103,8 @@ export default async function InfoCards({ id }: Props) {
           </div>
         </CardContent>
       </Card>
+
+      <Converter symbol={symbol} rateInUsd={market_data.current_price.usd} />
     </div>
   );
 }
